@@ -40,6 +40,6 @@ let result = await service.run({
 ```
 ## SCP Destination Configuration Examples
 
-
+- [SAP Cloud Platform Internet Destinations with No Authorization](./docs/InternetAPIwithNoAuthentication.md)
 
 ## Example Configure SCP Destination for Basic Authorization APIs
