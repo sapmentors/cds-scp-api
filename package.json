@@ -22,10 +22,7 @@
   "scripts": {
     "test": "mocha"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sapmentors/cds-scp-api.git"
-  },
+  "repository":  "git://github.com/sapmentors/cds-scp-api.git",
   "keywords": [
     "sap",
     "cap",
