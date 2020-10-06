@@ -18,15 +18,15 @@ Using npm:
 ```
 ## Supported Destination Types
 
-```Internet Destinations with No Authorization 
-```Internet Destinations with Basic Authorization
-```Internet Destinations with Client Credentionals (including Microsoft Azure)
-```Internet Destinations with Client Credentionals (currently only Google Cloud Platform[GCP])
+Internet Destinations with No Authorization 
+Internet Destinations with Basic Authorization
+Internet Destinations with Client Credentionals (including Microsoft Azure)
+Internet Destinations with Client Credentionals (currently only Google Cloud Platform[GCP])
 
 
 
 ## Javascript/Node.js Code
-
+```swift
 // Load the module
 const cdsapi = require("cds-scp-api");
 
@@ -35,9 +35,8 @@ const service = await cdsapi.connect.to("SCPDestination");
 
 // Request the API using Axios Settings
 let result = await service.run({
-		url: "/pathOfService"
-	})
-}
+               url: "/pathOfService"
+             })
 
 ```
 ## SCP Destination Configuration Examples
