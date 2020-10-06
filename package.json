@@ -1,6 +1,6 @@
 {
   "name": "cds-scp-api",
-  "version": "1.0.0",
+  "version": "0.0.1-alpha",
   "description": "CDS Extension for External Service Consumption",
   "main": "index.js",
   "dependencies": {
@@ -37,5 +37,8 @@
   "bugs": {
     "url": "https://github.com/sapmentors/cds-scp-api/issues"
   },
-  "homepage": "https://github.com/sapmentors/cds-scp-api#readme"
+  "homepage": "https://github.com/sapmentors/cds-scp-api#readme",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  }
 }
