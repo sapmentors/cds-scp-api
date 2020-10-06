@@ -1,0 +1,6 @@
+{
+    "access_token":"dummy.access_token",
+    "jti":"b0cb1ecejtid4560ab14034bcc49ajti",
+    "scope":"uaa.resource",
+    "token_type":"bearer"
+ }

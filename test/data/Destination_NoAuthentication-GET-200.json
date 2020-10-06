@@ -1,0 +1,14 @@
+{
+    "status":200,
+    "statusText":"OK",
+
+       "destinationConfiguration":{
+          "Authentication":"NoAuthentication",
+          "Description":"NL for Business Website",
+          "Name":"BlaBla",
+          "ProxyType":"Internet",
+          "Type":"HTTP",
+          "URL":"https://www.nl4b.com"
+       }
+
+ }
