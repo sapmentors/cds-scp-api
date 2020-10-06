@@ -1,8 +1,11 @@
 {
-  "name": "@sapmentors/cds-scp-api",
+  "name": "cds-scp-api",
   "version": "0.0.1-alpha",
   "description": "CDS Extension for External Service Consumption",
   "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
   "dependencies": {
     "@sap/xsenv": "^3.0",
     "@sap/cds": "^4.1.9",
@@ -10,8 +13,7 @@
     "axios-oauth-client": "^1.3.0",
     "axios-token-interceptor": "^0.2.0",
     "axios": "^0.19.2",
-    "cfenv": "^1.2.3",
-    "fs-sync": "^1.0.6"
+    "cfenv": "^1.2.3"
   },
   "devDependencies": {
     "axios-mock-adapter": "^1.18.2",
@@ -19,24 +21,19 @@
     "lodash": "^4.17.19",
     "mocha": "^8.1.0"
   },
-  "scripts": {
-    "test": "mocha"
-  },
-
   "keywords": [
     "sap",
     "cap",
     "cds",
     "axios"
   ],
-  "author": "Robert Eijpe",
+  "author": "SAP Mentors & Friends",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/sapmentors/cds-scp-api/issues"
   },
   "homepage": "https://github.com/sapmentors/cds-scp-api#readme",
-  "repository":  "git://github.com/sapmentors/cds-scp-api.git",
-
+  "repository": "git://github.com/sapmentors/cds-scp-api.git",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   }
