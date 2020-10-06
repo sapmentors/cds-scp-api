@@ -18,11 +18,10 @@ Using npm:
 ```
 ## Supported Destination Types
 
-Internet Destinations with No Authorization 
-Internet Destinations with Basic Authorization
-Internet Destinations with Client Credentionals (including Microsoft Azure)
-Internet Destinations with Client Credentionals (currently only Google Cloud Platform[GCP])
-
+- Internet Destinations with No Authorization 
+- Internet Destinations with Basic Authorization
+- Internet Destinations with Client Credentionals (including Microsoft Azure)
+- Internet Destinations with Client Credentionals (currently only Google Cloud Platform[GCP])
 
 
 ## Javascript/Node.js Code
