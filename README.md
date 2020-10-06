@@ -21,7 +21,7 @@ Using npm:
 - Internet Destinations with No Authorization 
 - Internet Destinations with Basic Authorization
 - Internet Destinations with Client Credentionals (including Microsoft Azure)
-- Internet Destinations with Client Credentionals (currently only Google Cloud Platform[GCP])
+- Internet Destinations with JWT token (currently only Google Cloud Platform)
 
 
 ## Javascript/Node.js Code
@@ -32,7 +32,7 @@ const cdsapi = require("cds-scp-api");
 // Create a connection
 const service = await cdsapi.connect.to("SCPDestination");
 
-// Request the API using Axios Settings
+// Request the API using Axios Config
 let result = await service.run({
                url: "/pathOfService"
              })
@@ -41,5 +41,12 @@ let result = await service.run({
 ## SCP Destination Configuration Examples
 
 - [SAP Cloud Platform Internet Destinations with No Authorization](./docs/InternetAPIwithNoAuthentication.md)
+- [SAP Cloud Platform Internet Destinations with Basic Authorization](./docs/InternetAPIwithBasicAuthentication.md)
+- [SAP Cloud Platform Internet Destinations for Microsoft 365/Azure via MSGraph ](./docs/InternetAPIforAzure.md)
+- [SAP Cloud Platform Internet Destinations for GSuite/Google Cloud Platform ](./docs/InternetAPIforGCP.md)
 
-## Example Configure SCP Destination for Basic Authorization APIs
+## Axios Config Settings
+Under Construction
+
+## Testing Program for Node Module
+Under Construction
