@@ -2,8 +2,8 @@
 
 ## SAP Cloud Platform Internet Destinations for Microsoft 365 (including Azure and Office 365 APIs) 
 This example is based Microsoft Graph API for Read all users' full profiles. 
-- The API can be found at [Microsoft Graph REST API v1.0 documentation](https://docs.microsoft.com/en-us/graph/api/user-list?view=graph-rest-1.0&tabs=http).
-- The setup in Microsoft Azure can be found [here](AzureMSGraphConfiguration.md)
+- The setup of Microsoft Azure for this module can be found [here](AzureMSGraphConfiguration.md)
+- Information about the API can be found at [Microsoft Graph REST API v1.0 documentation](https://docs.microsoft.com/en-us/graph/api/user-list?view=graph-rest-1.0&tabs=http).
 
 ## Destination Configuration in SAP Cloud Platform Destination Service
 
@@ -14,6 +14,7 @@ URL               : https://graph.microsoft.com
 Client ID         : <Application client ID of Azure App>
 Client Secret     : <Clients Secrets Value of Azure App>
 Token Service URL : https://login.microsoftonline.com/<Directory Tenant ID of Azure App>/oauth2/v2.0/token
+                    or <Token Service URL : <Application OAuth 2.0 token Endpoint(v2) of Azure App>
 Scope             : https://graph.microsoft.com/.default
 ```
 ## Javascript/Node.js Code
