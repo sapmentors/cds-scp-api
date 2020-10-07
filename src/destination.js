@@ -1,4 +1,5 @@
 const scpDestinations = require('../lib/scp-destinations.js')
+const scpConnectivity = require('../lib/scp-connectivity.js')
 const axios = require('axios')
 const oauth = require('axios-oauth-client')
 
@@ -280,7 +281,28 @@ class destinations {
             const locationId = (this.destinationConfiguration.CloudConnectorLocationId) ? this.destinationConfiguration.CloudConnectorLocationId : null;
 
             switch (this.destinationConfiguration.ProxyType) {
-                // case "OnPremise":
+                case "OnPremise":
+                    scpConnectivity.readConnectivity(locationId)
+                    .then((connectivityConfig)=>{
+                        return getAxiosConfig(options, this.destinationConfiguration, connectivityConfig)
+                    })                    
+                    .then(axiosConfig => {
+                        return axios(axiosConfig);
+                    })
+                    .then(results => {
+                        if (process.env.DEBUG === "true") {
+                            console.log(results.data);
+                        }
+                        resolve(results.data);
+                    })
+                    .catch(error => {
+                        if (process.env.DEBUG === "true") {
+                            console.error(error.message);
+                            console.error(error.response.data);
+                        }
+                        reject(error);
+                    });
+
                 // 	readConnectivity(locationId)
                 // 		.then(connectivityConfig => {
                 // 			return getAxiosConfig(options, this.credentials, connectivityConfig);
