@@ -71,6 +71,7 @@ The CDS-SCP-API is a SAP Cloud Platform layer on top of Axios. The configuration
 	  })
   }  
   ```
+CDS-SCP-API implementation uses relative URLs and authorization is configured in the SAP Cloud Platform and handled by the CDS-SCP-API implementation.
 
 ## Testing Program for Node Module
 Under Construction
