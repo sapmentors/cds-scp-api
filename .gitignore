@@ -3,3 +3,6 @@ local_test.js
 default-services.json
 default-env.json
 .github/*
+*.DS_Store
+.DS_Store
+*.afphoto
