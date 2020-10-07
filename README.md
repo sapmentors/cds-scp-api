@@ -8,6 +8,7 @@ The users can use the raw capabilities of **axios** node module while still util
 - Fluent api concept
 - Configure SAP Cloud Platform Destination and Connectivity services
 - CDS configuration found in **package.json**
+- Reuse Axios options for calling API
 
 ## Installation
 
@@ -25,7 +26,7 @@ Using npm:
 
 
 ## Javascript/Node.js Code
-```swift
+```javascript
 // Load the module
 const cdsapi = require("cds-scp-api");
 
@@ -45,8 +46,31 @@ let result = await service.run({
 - [SAP Cloud Platform Internet Destinations for Microsoft 365/Azure via MSGraph ](./docs/InternetAPIforAzure.md)
 - [SAP Cloud Platform Internet Destinations for GSuite/Google Cloud Platform ](./docs/InternetAPIforGCP.md)
 
-## Axios Config Settings
-Under Construction
+## CDS-SCP-API Config Settings
+The CDS-SCP-API is a SAP Cloud Platform layer on top of Axios. The configuration settings of the CDS-SCP-API **service.run** code is simular to Axios options, which can be found [here](https://github.com/axios/axios#request-config). Keep in mind that the SAP Cloud Platform Destination and Connectivity services will provide the authentification and proxy settings and will provide the baseURL and those settings set in the Axios options will be ignored.
+
+- Axios implementation
+  ```javascript
+  async function AxiosGetRequestwithBasicAuthorization() {
+	  return await axios({
+	  	url: 'https://sapes5.sapdevcenter.com/sap/opu/odata/sap/EPM_REF_APPS_SHOP_SRV/Products?$top=2',
+		  auth: {
+			  username: '<SAP S-number>',
+			  password: '<My password>'
+		  }
+	  })
+  }
+  ```
+
+- CDS-SCP-API implementation
+  ```javascript
+  async function InternetAPIGetRequestwithBasicAuthorization() {
+	  const service = await cdsapi.connect.to("ES5");
+	  return await service.run({
+		  url: "/sap/opu/odata/sap/EPM_REF_APPS_SHOP_SRV/Products?$top=2"
+	  })
+  }  
+  ```
 
 ## Testing Program for Node Module
 Under Construction
