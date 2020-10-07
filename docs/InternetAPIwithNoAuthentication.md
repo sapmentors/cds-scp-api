@@ -1,6 +1,8 @@
 # CDS-SCP-API Node Module Example
 
 ## SAP Cloud Platform Internet Destinations with No Authorization 
+This example is based on demo OData service API of odata.org which doesn't need an authorization
+The API can be found at https://services.odata.org/v4/Northwind/Northwind.svc/
 
 ### Destination Configuration in SAP Cloud Platform Destination Service
 
