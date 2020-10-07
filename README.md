@@ -49,6 +49,7 @@ let result = await service.run({
 ## CDS-SCP-API Config Settings
 The CDS-SCP-API is a SAP Cloud Platform layer on top of Axios. The configuration settings of the CDS-SCP-API **service.run** code is simular to Axios options, which can be found [here](https://github.com/axios/axios#request-config). Keep in mind that the SAP Cloud Platform Destination and Connectivity services will provide the authentification and proxy settings and will provide the baseURL and those settings set in the Axios options will be ignored.
 
+### Compare Axios with CDS-SCP-API
 - Axios implementation
   ```javascript
   async function AxiosGetRequestwithBasicAuthorization() {
@@ -73,5 +74,56 @@ The CDS-SCP-API is a SAP Cloud Platform layer on top of Axios. The configuration
   ```
 CDS-SCP-API implementation uses relative URLs and authorization is configured in the SAP Cloud Platform and handled by the CDS-SCP-API implementation.
 
+### Post requests
+  ```javascript
+async function InternetAPIPostRequestwithBasicAuthorization() {
+	const product = {
+		"ProductID": "NL4B-101",
+		"TypeCode": "PR",
+		"Category": "Notebooks",
+		"Name": "Psychiatric Help",
+		"NameLanguage": "EN",
+		"Description": "",
+		"DescriptionLanguage": "",
+		"SupplierID": "0100000000",
+		"SupplierName": "SAP",
+		"TaxTarifCode": 1,
+		"MeasureUnit": "EA",
+		"WeightMeasure": "0.000",
+		"WeightUnit": "",
+		"CurrencyCode": "EUR",
+		"Price": "0.05",
+		"Width": "0.000",
+		"Depth": "0.000",
+		"Height": "0.000",
+		"DimUnit": "",
+		"CreatedAt": "\/Date(1602106635169)\/",
+		"ChangedAt": "\/Date(1602106635169)\/"
+	}
+
+	const service = await cdsapi.connect.to("ES5");
+	return await service.run({
+		url: "/sap/opu/odata/IWBEP/GWSAMPLE_BASIC/ProductSet",
+		method: "post",
+		headers: {
+			'content-type': 'application/json'
+		},
+		data: product,
+		csrfProtection: true
+	})
+}
+  ```
+
+### Simultaneous requests
+  ```javascript
+axios.all([
+	AxiosGetRequestwithBasicAuthorization(),
+	InternetAPIGetRequestwithBasicAuthorization()
+])
+	.then(axios.spread((request1, request2) => {
+		console.log('Results AxiosGetRequestwithBasicAuthorization      : ', request1.data.d.results[0].Name);
+		console.log('Results InternetAPIGetRequestwithBasicAuthorization: ', request2.d.results[0].Name);
+	}));
+  ```
 ## Testing Program for Node Module
 Under Construction
