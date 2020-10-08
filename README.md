@@ -9,7 +9,7 @@ The users can use the raw capabilities of the **Axios** node module while still 
 - Reuse Axios options for calling API
 
 ## History
-Jhodel Cailan initially started the CDS Extension concept. SAP Mentor Robert Eijpe created a similar concept integrating Microsoft Azure and Google Cloud APIs into a CDS external services concept. The SAP Devtoberfest 2020 challenge brought us together. And this CDS-SCP-API Node Module contributes to the community, and we hope it will SAP developers live better.
+Jhodel Cailan initially started the CDS Extension concept. SAP Mentor Robert Eijpe created a similar concept integrating Microsoft Azure and Google Cloud APIs into a CDS external services concept. The SAP Devtoberfest 2020 challenge brought them together. And this CDS-SCP-API Node Module contributes to the community, and we hope it will SAP developers life better.
 
 ## Installation
 
