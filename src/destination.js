@@ -228,8 +228,8 @@ function getAxiosConfig(options, cfDestinationInfo, connectivity) {
 
         getAuthorizationHeader(config, cfDestinationInfo).then(config => {
             if (connectivity) {
-                config.proxy = connectivity.proxy;
-                config.headers = Object.assign(config.headers || {}, connectivity.headers);
+                config.proxyConfiguration = Object.assign({},connectivity.proxy)
+                config.proxyConfiguration.headers = Object.assign({}, connectivity.headers)
             }
 
             if (!config.csrfProtection) {
@@ -279,17 +279,16 @@ class destinations {
     run(options) {
         return new Promise((resolve, reject) => {
             const locationId = (this.destinationConfiguration.CloudConnectorLocationId) ? this.destinationConfiguration.CloudConnectorLocationId : null;
-
             switch (this.destinationConfiguration.ProxyType) {
                 case "OnPremise":
-                    scpConnectivity.readConnectivity(locationId)
-                    .then((connectivityConfig)=>{
-                        return getAxiosConfig(options, this.destinationConfiguration, connectivityConfig)
-                    })                    
-                    .then(axiosConfig => {
-                        return axios(axiosConfig);
+                    var connectivityConfig = new scpConnectivity().readConnectivity(locationId)
+                    .then(connectivityConfig => {
+                        return getAxiosConfig(options, this.destinationConfiguration, connectivityConfig)   
                     })
-                    .then(results => {
+                    .then(axiosConfig => {                  
+                          return axios(axiosConfig)
+                    })
+                    .then(response => {
                         if (process.env.DEBUG === "true") {
                             console.log(results.data);
                         }
@@ -302,30 +301,6 @@ class destinations {
                         }
                         reject(error);
                     });
-
-                // 	readConnectivity(locationId)
-                // 		.then(connectivityConfig => {
-                // 			return getAxiosConfig(options, this.credentials, connectivityConfig);
-                // 		})
-                // 		.then(axiosConfig => {
-                // 			return axios(axiosConfig);
-                // 		})
-                // 		.then(results => {
-                // 			if (process.env.DEBUG === "true") {
-                // 				console.log(results.data);
-                // 			}
-                // 			resolve(results.data);
-                // 		})
-                // 		.catch(error => {
-                // 			if (process.env.DEBUG === "true") {
-                // 				console.error(error.message);
-                // 				console.error(error.response.data);
-                // 			}
-                // 			reject(error);
-                // 		});
-                // 	break;
-
-                // case undefined:
                 case "Internet":
                     switch (this.destinationConfiguration.Type) {
                         case "HTTP":

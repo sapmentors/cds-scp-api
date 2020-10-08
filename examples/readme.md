@@ -32,7 +32,7 @@ Remark: Look for [SCP Destination Configuration](../README.md) in the documentat
 - Add the following dependencies, just below the script settings to your **package.json** file 
   ```json
   "dependencies": {
-    "@sapmentors/cds-scp-api": "^0.0.1-alpha"
+    "@sapmentors/cds-scp-api": "^0.0.2-alpha"
   },
   ```
 
