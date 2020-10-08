@@ -85,7 +85,7 @@
 
 ## Optimize CAP CDS External Service from Microsoft 365 MSGraph Services
 
-Just like CAP Services, MSGraph Services are based on OData Version 4. This means that we can optimize the **msgraph-user-service.js** code, so we can use the OData capabilities. If you replace the **msgraph-user-service.js** code with the code you can find [here](./msgraph-user-service.js), the CAP CDS External Service will also supports 
+Microsoft Graph Services are, just like CAP Services, based on OData Version 4. So, we can optimize the **msgraph-user-service.js** code by adding these OData features. If you replace the **msgraph-user-service.js** code with the code you can find [here](./msgraph-user-service.js), the CAP CDS External Service will also support 
 - access single entities by specifying the key
 - $filter support
 - $top support

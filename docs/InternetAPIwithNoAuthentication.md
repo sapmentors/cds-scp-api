@@ -1,10 +1,12 @@
 # CDS-SCP-API Node Module Example
 
 ## SAP Cloud Platform Internet Destinations with No Authentication 
-This example is based on demo OData service API of odata.org which doesn't need an authentication
-The API can be found at https://services.odata.org/v4/Northwind/Northwind.svc/
+These destinations are pointing to the demo OData service API https://services.odata.org/v4/Northwind/Northwind.svc/ of odata.org. This API endpoint doesn't need authentication.
 
-### Destination Configuration in SAP Cloud Platform Destination Service
+## No Authentication Example
+- [Retrieve a product list from public available OData Service called Northwind](./InternetProxy/ReadPublicApiNorthwindWithNoAuthentication.js) - Standalone Node.js/Javascript Example
+
+## Destination Configuration in SAP Cloud Platform Destination Service
 
 ![Destination Configuration](./pictures/DestinationInternetWithNoAuthentication.png)
 

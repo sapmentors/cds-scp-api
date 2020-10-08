@@ -2,17 +2,17 @@
 
 ## Standalone Examples
 
-- [Retrieve a productlist from public OData Service Northwind](./InternetProxy/ReadPublicApiNorthwindWithNoAuthentication.js) - No Authentification
-- [Retrieve a productlist from public SAP ECC system](./InternetProxy/ReadProductsOfErpWithBasicAuthentication.js) - Basic Authentification
-- [Create a product in public SAP ECC system](./InternetProxy/CreateProductInErpWithBasicAuthentication.js)  - Basic Authentification
-- [Read Userlist from Microsoft Azure Active Directory](./InternetProxy/ReadUserlistOfAzureActiveDirectoryWithClientCredentialsAuthentication.js) - Client Credentials  Authentification
-- Read Userlist from Google Cloud Platform - JWT Token Authentification (under construction)
+- [Retrieve a product list from public available OData Service called Northwind](./InternetProxy/ReadPublicApiNorthwindWithNoAuthentication.js) - No Authentification
+- [Retrieve a product list from public available SAP OData service](./InternetProxy/ReadProductsOfErpWithBasicAuthentication.js) - Basic Authentification
+- [Create a product with public available SAP OData service](./InternetProxy/CreateProductInErpWithBasicAuthentication.js)  - Basic Authentification
+- [Read user list from Microsoft Azure Active Directory](./InternetProxy/ReadUserlistOfAzureActiveDirectoryWithClientCredentialsAuthentication.js) - Client Credentials  Authentification
+- Read user list from Google Cloud Platform - JWT Token Authentification (under construction)
 
 Remark: Look for [SCP Destination Configuration](../README.md) in the documentation for setting up the needed Destinations and environments.
 
 ## Cloud Application Programming Model Examples
-- [Userlist from Microsoft Azure Active Directory as CAP CDS External Service](./CAP/CapMSGraphCdsService.md)
-- Userlist from Google Cloud Platform as CAP CDS External Service (under construction)
+- [User list from Microsoft Azure Active Directory as CAP CDS External Service](./CAP/CapMSGraphCdsService.md)
+- User list from Google Cloud Platform as CAP CDS External Service (under construction)
 - Create Excel in Office365 from CAP CDS action - (under construction)
 
 ## Steps for setting up the standalone example project
@@ -82,26 +82,26 @@ Before you can run these examples locally, you need to add a **default-env.json*
     }
 }
 ```
-If you have the [Cloud Foundry Client Tools](https://developers.sap.com/tutorials/cp-cf-download-cli.html) installed, you can use these tools to find the settings.
+If you have the [Cloud Foundry Client Tools](https://developers.sap.com/tutorials/cp-cf-download-cli.html) installed, you can use them to find the settings.
 
-- Credentials values can be retrieved with:
+- Credentials values can be retrieved with the statement:
   ```swift
   cf service-key <Destination-Service-Name> <Service-Key-Name>
   ```
 
-- If you don't know the  <Destination-Service-Name>, you can use the command
+- If you don't know the **Destination-Service-Name**, you can use the command:
   ```swift
   cf services 
   ```
-  Look in the list below the ***service*** column for destination and you will find the <Destination-Service-Name> in the ***name*** column
+  Look in the list below the ***service*** column for the destination, and you will find the **Destination-Service-Name** in the ***name*** column
 
-- If you don't know the <Service-Key-Name>, you can use the command
+- If you don't know the **Service-Key-Name**, you can use the command:
   ```swift
   cf service-keys <Destination-Service-Name>
   ```
   for available service keys
 
-- If no <Service-Key-Name> exists, you can create one with
+- If no **Service-Key-Name** exists, you can create one with the statement:
   ```swift
   cf create-service-key <Destination-Service-Name> <Service-Key-Name>
   ```

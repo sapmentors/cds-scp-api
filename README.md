@@ -1,14 +1,15 @@
 # CDS-SCP-API Node Module 
 
 ## CDS Extension for SAP Cloud Platform API Consumption
-The idea of this module is based on Jhodel Cailan CDSE module.
-
-This node module simplifies the consuming external API in a Cloud Application Programming (CAP) Model.
-The users can use the raw capabilities of **axios** node module while still utilizing the following capabilites of CAP framework and SAP Cloud Platform:
-- Fluent api concept
+This node module simplifies the consuming external API in a Cloud Application Programming (CAP) Model. 
+The users can use the raw capabilities of the **Axios** node module while still utilizing the following capabilities of CAP framework and SAP Cloud Platform:
+- Fluent API concept
 - Configure SAP Cloud Platform Destination and Connectivity services
 - CDS configuration found in **package.json**
 - Reuse Axios options for calling API
+
+## History
+Jhodel Cailan initially started the CDS Extension concept. SAP Mentor Robert Eijpe created a similar concept integrating Microsoft Azure and Google Cloud APIs into a CDS external services concept. The SAP Devtoberfest 2020 challenge brought us together. And this CDS-SCP-API Node Module contributes to the community, and we hope it will SAP developers live better.
 
 ## Installation
 
@@ -21,7 +22,7 @@ Using npm:
 
 - Internet Destinations with No Authentication 
 - Internet Destinations with Basic Authentication
-- Internet Destinations with Client Credentionals Authentication (including Microsoft Azure)
+- Internet Destinations with Client Credentials Authentication (including Microsoft Azure)
 - Internet Destinations with JWT token Authentication (currently only Google Cloud Platform)
 
 
@@ -47,7 +48,7 @@ let result = await service.run({
 - [SAP Cloud Platform Internet Destinations for GSuite/Google Cloud Platform ](./docs/InternetAPIforGCP.md)
 
 ## CDS-SCP-API Config Settings
-The CDS-SCP-API is a SAP Cloud Platform layer on top of Axios. The configuration settings of the CDS-SCP-API **service.run** code is simular to Axios options, which can be found [here](https://github.com/axios/axios#request-config). Keep in mind that the SAP Cloud Platform Destination and Connectivity services will provide the authentification and proxy settings and will provide the baseURL and those settings set in the Axios options will be ignored.
+The CDS-SCP-API is an SAP Cloud Platform layer on top of Axios. The configuration settings of the CDS-SCP-API **service.run** code is simular to Axios options, which are documented [here](https://github.com/axios/axios#request-config). CDS-SCP-API will ignore the Axios config settings for the authentification, the proxy settings, and the baseURL. The CDS-SCP-API retrieves these settings from the SAP Cloud Platform Destination & Connectivity services. 
 
 ### Compare Axios with CDS-SCP-API
 - Axios implementation
@@ -72,7 +73,7 @@ The CDS-SCP-API is a SAP Cloud Platform layer on top of Axios. The configuration
 	  })
   }  
   ```
-CDS-SCP-API implementation uses relative URLs and authorization is configured in the SAP Cloud Platform and handled by the CDS-SCP-API implementation.
+CDS-SCP-API implementation uses relative URLs, and authorization is configured in the SAP Cloud Platform and handled by the CDS-SCP-API implementation.
 
 ### Post requests
   ```javascript
@@ -134,4 +135,4 @@ async function SimultaneousRequests() {
 }
   ```
 ## Example Program for Node Module
-Examples and setup can be found [here](./examples/readme.md)
+Click [here](./examples/readme.md) for examples and environment setup
