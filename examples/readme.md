@@ -10,9 +10,10 @@
 
 Remark: Look for [SCP Destination Configuration](../README.md) in the documentation for setting up the needed Destinations and environments.
 
-## CDS Examples
-- Read Userlist from Google Cloud Platform - JWT Token Authentification (under construction)
-- Create Excel in Office365 from CAP Cds action - Client Credentials Authentification (under construction)
+## Cloud Application Programming Model Examples
+- [Userlist from Microsoft Azure Active Directory as CAP CDS External Service](./CAP/CapMSGraphCdsService.md)
+- Userlist from Google Cloud Platform as CAP CDS External Service (under construction)
+- Create Excel in Office365 from CAP CDS action - (under construction)
 
 ## Steps for setting up the standalone example project
 

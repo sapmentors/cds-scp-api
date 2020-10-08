@@ -1,4 +1,4 @@
-const scpDestinations = require('../lib/scp-destinations.js')
+//const scpDestinations = require('../lib/scp-destinations.js')
 const scpConnectivity = require('../lib/scp-connectivity.js')
 const axios = require('axios')
 const oauth = require('axios-oauth-client')
@@ -27,32 +27,6 @@ function getClientCredentialsTokenForDestination(cfDestinationInfo) {
             });
     })
 }
-
-function getUserTokenExchangeTokenForDestination(cfDestinationInfo) {
-    return new Promise((resolve, reject) => {
-        var cfg = {}
-        cfg['url'] = `${cfDestinationInfo.tokenServiceURL}/oauth/token`
-        cfg['grant_type'] = `client_credentials`
-        cfg['client_id'] = cfDestinationInfo.clientId
-        cfg['client_secret'] = cfDestinationInfo.clientSecret
-        if (cfDestinationInfo.scope !== undefined) {
-            cfg['scope'] = cfDestinationInfo.scope
-        }
-        const getClientCredentials = oauth.client(axios.create(), cfg)
-        getClientCredentials().then(token => {
-            resolve(token);
-            config.headers['Authorization'] = `${userTokenExchangeToken.token_type} ${userTokenExchangeToken.access_token}`
-            //TODO ALL OTHER STEPS FOR THIS FLOW
-        }).then(resp => {
-
-        })
-            .catch(error => {
-                console.log(error.text)
-                reject(error)
-            });
-    })
-}
-
 
 function getAuthorizationHeader(_config, cfDestinationInfo) {
     return new Promise((resolve, reject) => {
@@ -223,41 +197,47 @@ function createJwtTokenForGCPServiceAccount(cfDestinationInfo) {
 function getAxiosConfig(options, cfDestinationInfo, connectivity) {
     return new Promise((resolve, reject) => {
         var config = Object.assign({}, options);
-        config.baseURL = cfDestinationInfo.URL;
         config.headers = Object.assign({}, options.headers);
 
-        getAuthorizationHeader(config, cfDestinationInfo).then(config => {
-            if (connectivity) {
-                config.proxyConfiguration = Object.assign({},connectivity.proxy)
-                config.proxyConfiguration.headers = Object.assign({}, connectivity.headers)
-            }
+        //Delete Axios Option properties which will be set by the destination service
+        delete config['baseURL'];
+        delete config.headers['Authorization'];
 
-            if (!config.csrfProtection) {
-                if (process.env.DEBUG === "true") {
-                    //                 console.log(config);
+        //Set BaseURL from destination service
+        config.baseURL = cfDestinationInfo.URL;
+
+        //Set Authorization from destination service
+        getAuthorizationHeader(config, cfDestinationInfo)
+            .then(config => {
+                //Set Proxy setting from connectivity service for OnPremise destinations
+                if (connectivity) {
+                    config.proxyConfiguration = Object.assign({}, connectivity.proxy)
+                    config.proxyConfiguration.headers = Object.assign({}, connectivity.headers)
                 }
-                resolve(config);
-            } else {
-                axios(getConfigForTokenFetch(config))
-                    .then(results => {
-                        const { headers } = results;
-                        config.headers = config.headers || {};
-                        config.headers["x-csrf-token"] = headers["x-csrf-token"];
+                //Set csrf token when requested
+                if (config.csrfProtection) {
+                    axios(getConfigForTokenFetch(config))
+                        .then(resp => {
+                            const { headers } = resp;
+                            config.headers = config.headers || {};
+                            config.headers["x-csrf-token"] = headers["x-csrf-token"];
+                            const cookies = headers["set-cookie"];
+                            if (cookies) {
+                                config.headers.Cookie = cookies.join("; ");
+                            }
+                            resolve(config);
+                        })
+                        .catch(error => {
+                            reject(error)
+                        });
 
-                        const cookies = headers["set-cookie"];
-                        if (cookies) {
-                            config.headers.Cookie = cookies.join("; ");
-                        }
-
-                        if (process.env.DEBUG === "true") {
-                            //                         console.log(config);
-                        }
-                        resolve(config);
-                    })
-                    .catch(reject);
-            }
-        })
-            .catch(reject);
+                } else {
+                    resolve(config);
+                }
+            })
+            .catch(error => {
+                reject(error)
+            });
     });
 }
 
@@ -282,25 +262,25 @@ class destinations {
             switch (this.destinationConfiguration.ProxyType) {
                 case "OnPremise":
                     var connectivityConfig = new scpConnectivity().readConnectivity(locationId)
-                    .then(connectivityConfig => {
-                        return getAxiosConfig(options, this.destinationConfiguration, connectivityConfig)   
-                    })
-                    .then(axiosConfig => {                  
-                          return axios(axiosConfig)
-                    })
-                    .then(response => {
-                        if (process.env.DEBUG === "true") {
-                            console.log(results.data);
-                        }
-                        resolve(results.data);
-                    })
-                    .catch(error => {
-                        if (process.env.DEBUG === "true") {
-                            console.error(error.message);
-                            console.error(error.response.data);
-                        }
-                        reject(error);
-                    });
+                        .then(connectivityConfig => {
+                            return getAxiosConfig(options, this.destinationConfiguration, connectivityConfig)
+                        })
+                        .then(axiosConfig => {
+                            return axios(axiosConfig)
+                        })
+                        .then(response => {
+                            if (process.env.DEBUG === "true") {
+                                console.log(results.data);
+                            }
+                            resolve(results.data);
+                        })
+                        .catch(error => {
+                            if (process.env.DEBUG === "true") {
+                                console.error(error.message);
+                                console.error(error.response.data);
+                            }
+                            reject(error);
+                        });
                 case "Internet":
                     switch (this.destinationConfiguration.Type) {
                         case "HTTP":
