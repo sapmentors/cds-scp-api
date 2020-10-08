@@ -5,7 +5,12 @@ This example is based Microsoft Graph API for Read all users' full profiles.
 - The setup of Microsoft Azure for this module can be found [here](AzureMSGraphConfiguration.md)
 - Information about the API can be found at [Microsoft Graph REST API v1.0 documentation](https://docs.microsoft.com/en-us/graph/api/user-list?view=graph-rest-1.0&tabs=http).
 
-## Destination Configuration in SAP Cloud Platform Destination Service
+## Microsoft 365 Examples
+- [Read Userlist from Microsoft Azure Active Directory](../examples/InternetProxy/ReadUserlistOfAzureActiveDirectoryWithClientCredentialsAuthentication.js) - Standalone Node.js/Javascript Example
+
+- [Userlist from Microsoft Azure Active Directory as CAP CDS External Service](../examples/CAP/CapMSGraphCdsService.md) - Cloud Application Model Example
+
+## Destination Configuration in SAP Cloud Platform Destination Service 
 
 ![Destination Configuration](./pictures/DestinationInternetForMicrosoft365.png)
 
