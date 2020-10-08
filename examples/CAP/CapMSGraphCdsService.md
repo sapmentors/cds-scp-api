@@ -79,7 +79,7 @@
   ```unix
   cds watch
   ```
-
+  ![App registration page](../../docs/pictures/AzureCapCdsService.png)
 - Click on User to see the data from Azure
 
 
