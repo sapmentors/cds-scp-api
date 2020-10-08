@@ -19,10 +19,10 @@ Using npm:
 ```
 ## Supported Destination Types
 
-- Internet Destinations with No Authorization 
-- Internet Destinations with Basic Authorization
-- Internet Destinations with Client Credentionals (including Microsoft Azure)
-- Internet Destinations with JWT token (currently only Google Cloud Platform)
+- Internet Destinations with No Authentication 
+- Internet Destinations with Basic Authentication
+- Internet Destinations with Client Credentionals Authentication (including Microsoft Azure)
+- Internet Destinations with JWT token Authentication (currently only Google Cloud Platform)
 
 
 ## Javascript/Node.js Code
@@ -41,8 +41,8 @@ let result = await service.run({
 ```
 ## SCP Destination Configuration Examples
 
-- [SAP Cloud Platform Internet Destinations with No Authorization](./docs/InternetAPIwithNoAuthentication.md)
-- [SAP Cloud Platform Internet Destinations with Basic Authorization](./docs/InternetAPIwithBasicAuthentication.md)
+- [SAP Cloud Platform Internet Destinations with No Authentication](./docs/InternetAPIwithNoAuthentication.md)
+- [SAP Cloud Platform Internet Destinations with Basic Authentication](./docs/InternetAPIwithBasicAuthentication.md)
 - [SAP Cloud Platform Internet Destinations for Microsoft 365/Azure via MSGraph ](./docs/InternetAPIforAzure.md)
 - [SAP Cloud Platform Internet Destinations for GSuite/Google Cloud Platform ](./docs/InternetAPIforGCP.md)
 
@@ -52,7 +52,7 @@ The CDS-SCP-API is a SAP Cloud Platform layer on top of Axios. The configuration
 ### Compare Axios with CDS-SCP-API
 - Axios implementation
   ```javascript
-  async function AxiosGetRequestwithBasicAuthorization() {
+  async function AxiosGetRequestwithBasicAuthentication() {
 	  return await axios({
 	  	url: 'https://sapes5.sapdevcenter.com/sap/opu/odata/sap/EPM_REF_APPS_SHOP_SRV/Products?$top=2',
 		  auth: {
@@ -65,7 +65,7 @@ The CDS-SCP-API is a SAP Cloud Platform layer on top of Axios. The configuration
 
 - CDS-SCP-API implementation
   ```javascript
-  async function InternetAPIGetRequestwithBasicAuthorization() {
+  async function InternetAPIGetRequestwithBasicAuthentication() {
 	  const service = await cdsapi.connect.to("ES5");
 	  return await service.run({
 		  url: "/sap/opu/odata/sap/EPM_REF_APPS_SHOP_SRV/Products?$top=2"
@@ -76,7 +76,7 @@ CDS-SCP-API implementation uses relative URLs and authorization is configured in
 
 ### Post requests
   ```javascript
-async function InternetAPIPostRequestwithBasicAuthorization() {
+async function InternetAPIPostRequestwithBasicAuthentication() {
 	const product = {
 		"ProductID": "NL4B-101",
 		"TypeCode": "PR",
@@ -116,14 +116,22 @@ async function InternetAPIPostRequestwithBasicAuthorization() {
 
 ### Simultaneous requests
   ```javascript
-axios.all([
-	AxiosGetRequestwithBasicAuthorization(),
-	InternetAPIGetRequestwithBasicAuthorization()
-])
-	.then(axios.spread((request1, request2) => {
-		console.log('Results AxiosGetRequestwithBasicAuthorization      : ', request1.data.d.results[0].Name);
-		console.log('Results InternetAPIGetRequestwithBasicAuthorization: ', request2.d.results[0].Name);
-	}));
+async function SimultaneousRequests() {
+	const service = await cdsapi.connect.to("ES5")
+	axios.all([
+		service.run({
+			url: "/sap/opu/odata/sap/EPM_REF_APPS_SHOP_SRV/Products?$top=2"
+		}),
+		service.run({
+			url: "/sap/opu/odata/sap/EPM_REF_APPS_SHOP_SRV/Products?$top=3"
+		})
+	])
+		.then(axios.spread((request1, request2) => {
+			console.log('Results request1: ', request1.d.results[0].Name);
+			console.log('Results request2: ', request2.d.results[0].Name);
+		}));
+
+}
   ```
 ## Testing Program for Node Module
 Under Construction

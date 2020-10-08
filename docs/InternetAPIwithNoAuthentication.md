@@ -1,7 +1,7 @@
 # CDS-SCP-API Node Module Example
 
-## SAP Cloud Platform Internet Destinations with No Authorization 
-This example is based on demo OData service API of odata.org which doesn't need an authorization
+## SAP Cloud Platform Internet Destinations with No Authentication 
+This example is based on demo OData service API of odata.org which doesn't need an authentication
 The API can be found at https://services.odata.org/v4/Northwind/Northwind.svc/
 
 ### Destination Configuration in SAP Cloud Platform Destination Service
@@ -12,7 +12,7 @@ The API can be found at https://services.odata.org/v4/Northwind/Northwind.svc/
 ```javascript
 const cdsapi = require("@sapmentors/cds-scp-api");
 
-async function InternetAPIGetRequestwithNoAuthorization() {
+async function InternetAPIGetRequestwithNoAuthentication() {
 	const service = await cdsapi.connect.to("Northwind");
 	// HTTP GET request based on Axios
 	return await service.run({
@@ -26,7 +26,7 @@ async function InternetAPIGetRequestwithNoAuthorization() {
 	})
 }
 
-InternetAPIGetRequestwithNoAuthorization()
+InternetAPIGetRequestwithNoAuthentication()
 	.then((data) => {
         let result = JSON.parse(data)
 		console.log(result.value[0].ProductName)
