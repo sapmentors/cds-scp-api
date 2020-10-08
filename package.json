@@ -1,6 +1,6 @@
 {
   "name": "cds-scp-api",
-  "version": "0.0.1-alpha",
+  "version": "0.0.2-alpha",
   "description": "CDS Extension for External Service Consumption",
   "main": "index.js",
   "scripts": {
