@@ -1,21 +1,23 @@
 const cds = require("@sap/cds");
 const Destination = require('./src/destination.js')
 const xsenv = require('@sap/xsenv')
+const utils = require('./lib/scp-utils')
 var fs = require('fs');
 
-function getJSONFile(filename) {
-    var parsedJSON;
-    try {
-        if (fs.existsSync(filename)) {
-            parsedJSON = JSON.parse(fs.readFileSync(filename, 'utf8'));
-        }
-        return parsedJSON;
-    } catch (err) {
-        throw new Error(err, 'Could not parse %s', filename);
-    }
-}
+// function getJSONFile(filename) {
+//     var parsedJSON;
+//     try {
+//         if (fs.existsSync(filename)) {
+//             parsedJSON = JSON.parse(fs.readFileSync(filename, 'utf8'));
+//         }
+//         return parsedJSON;
+//     } catch (err) {
+//         throw new Error(err, 'Could not parse %s', filename);
+//     }
+// }
 
 function to(cfDestination) {
+
     return new Promise(async (resolve, reject) => {
         let cfServiceName = 'destination'
         var destinations = []
@@ -24,7 +26,7 @@ function to(cfDestination) {
         if (process.env.VCAP_SERVICES == null) {
             if (fs.existsSync(ENV_JSON_FILE)) {
                 try {
-                    var envJson = getJSONFile(ENV_JSON_FILE);
+                    var envJson = utils.getJSONFile(ENV_JSON_FILE);
                     process.env.VCAP_SERVICES = JSON.stringify(envJson.VCAP_SERVICES)
                 } catch (err) {
                     console.error('Could not read configuration file ' + ENV_JSON_FILE + ': ' + err);
