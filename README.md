@@ -24,7 +24,8 @@ Using npm:
 - Internet Destinations with Basic Authentication
 - Internet Destinations with Client Credentials Authentication (including Microsoft Azure)
 - Internet Destinations with JWT token Authentication (currently only Google Cloud Platform)
-
+- OnPremise Destination and Connectivity via Cloud Connector with No Authentication 
+- OnPremise Destinations and Connectivity via Cloud Connector with Basic Authentication
 
 ## Javascript/Node.js Code
 ```javascript
@@ -75,7 +76,7 @@ The CDS-SCP-API is an SAP Cloud Platform layer on top of Axios. The configuratio
   ```
 CDS-SCP-API implementation uses relative URLs, and authorization is configured in the SAP Cloud Platform and handled by the CDS-SCP-API implementation.
 
-### Post requests
+### Post requests with CSRF token protection
   ```javascript
 async function InternetAPIPostRequestwithBasicAuthentication() {
 	const product = {
@@ -114,6 +115,7 @@ async function InternetAPIPostRequestwithBasicAuthentication() {
 	})
 }
   ```
+When request needs a X-CSRF token to fulfill, you can easily add the setting **csrfProtection: true**
 
 ### Simultaneous requests
   ```javascript
