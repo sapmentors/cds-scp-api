@@ -18,14 +18,6 @@ Using npm:
 ```swift
 > npm install @sapmentors/cds-scp-api
 ```
-## Supported Destination Types
-
-- Internet Destinations with No Authentication 
-- Internet Destinations with Basic Authentication
-- Internet Destinations with Client Credentials Authentication (including Microsoft Azure)
-- Internet Destinations with JWT token Authentication (currently only Google Cloud Platform)
-- OnPremise Destination and Connectivity via Cloud Connector with No Authentication 
-- OnPremise Destinations and Connectivity via Cloud Connector with Basic Authentication
 
 ## Javascript/Node.js Code
 ```javascript
@@ -41,6 +33,19 @@ let result = await service.run({
              })
 
 ```
+## Example Programs
+
+Click [here](./examples/readme.md) for examples and environment setup
+
+## Supported Destination Types
+
+- Internet Destinations with No Authentication 
+- Internet Destinations with Basic Authentication
+- Internet Destinations with Client Credentials Authentication (including Microsoft Azure)
+- Internet Destinations with JWT token Authentication (currently only Google Cloud Platform)
+- OnPremise Destination and Connectivity via Cloud Connector with No Authentication 
+- OnPremise Destinations and Connectivity via Cloud Connector with Basic Authentication
+
 ## SCP Destination Configuration Examples
 
 - [SAP Cloud Platform Internet Destinations with No Authentication](./docs/InternetAPIwithNoAuthentication.md)
@@ -136,5 +141,3 @@ async function SimultaneousRequests() {
 
 }
   ```
-## Example Program for Node Module
-Click [here](./examples/readme.md) for examples and environment setup
