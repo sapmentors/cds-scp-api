@@ -213,7 +213,8 @@ function getAxiosConfig(options, cfDestinationInfo, connectivity) {
                 //<ore info https://blogs.sap.com/2020/08/07/sap-cloud-platform-how-to-call-onprem-system-from-node.js-app-via-cloud-connector/
                 if (connectivity) {
                     config.proxyConfiguration = Object.assign({}, connectivity.proxy)
-                    config.proxyConfiguration.headers = Object.assign({}, connectivity.headers)
+                    config.headers = Object.assign(config.headers || {}, connectivity.headers)
+
                 }
 
                 // if (connectivity) {
