@@ -4,7 +4,7 @@
 These destinations are pointing to the demo OData service API https://services.odata.org/v4/Northwind/Northwind.svc/ of odata.org. This API endpoint doesn't need authentication.
 
 ## No Authentication Example
-- [Retrieve a product list from public available OData Service called Northwind](./InternetProxy/ReadPublicApiNorthwindWithNoAuthentication.js) - Standalone Node.js/Javascript Example
+- [Retrieve a product list from public available OData Service called Northwind](./examples/InternetProxy/ReadPublicApiNorthwindWithNoAuthentication.js) - Standalone Node.js/Javascript Example
 
 ## Destination Configuration in SAP Cloud Platform Destination Service
 
