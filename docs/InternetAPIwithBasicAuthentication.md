@@ -5,8 +5,8 @@ This example uses APIs of the SAP Gateway Demo System **ES5**.
 If you don't have access to the SAP Gateway Demo System ES5, you can follow this [tutorial](https://developers.sap.com/tutorials/gateway-demo-signup.html) to get access.
 
 ## Basic Authentication Examples
-- [Retrieve a product list from public available SAP OData service](./InternetProxy/ReadProductsOfErpWithBasicAuthentication.js) - Standalone Node.js/Javascript Example
-- [Create a product with public available SAP OData service](./InternetProxy/CreateProductInErpWithBasicAuthentication.js) - Standalone Node.js/Javascript Example 
+- [Retrieve a product list from public available SAP OData service](../examples/InternetProxy/ReadProductsOfErpWithBasicAuthentication.js) - Standalone Node.js/Javascript Example
+- [Create a product with public available SAP OData service](../examples/InternetProxy/CreateProductInErpWithBasicAuthentication.js) - Standalone Node.js/Javascript Example 
 
 
 ## Destination Configuration in SAP Cloud Platform Destination Service
