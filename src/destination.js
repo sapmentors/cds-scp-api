@@ -212,7 +212,8 @@ function getAxiosConfig(options, cfDestinationInfo, connectivity) {
                 //Set Proxy setting from connectivity service for OnPremise destinations
                 //<ore info https://blogs.sap.com/2020/08/07/sap-cloud-platform-how-to-call-onprem-system-from-node.js-app-via-cloud-connector/
                 if (connectivity) {
-                    config.proxyConfiguration = Object.assign({}, connectivity.proxy)
+//                    config.proxyConfiguration = Object.assign({}, connectivity.proxy)
+                    config.proxy = Object.assign({}, connectivity.proxy)
                     config.headers = Object.assign(config.headers || {}, connectivity.headers)
 
                 }
