@@ -291,9 +291,9 @@ class destinations {
                         })
                         .then(response => {
                             if (process.env.DEBUG === "true") {
-                                console.log(results.data);
+                                console.log(response.data);
                             }
-                            resolve(results.data);
+                            resolve(response.data);
                         })
                         .catch(error => {
                             if (process.env.DEBUG === "true") {
