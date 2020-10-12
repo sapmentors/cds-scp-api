@@ -1,15 +1,14 @@
 # CDS-SCP-API Node Module 
 
 ## CDS Extension for SAP Cloud Platform API Consumption
-This node module simplifies the consuming external API in a Cloud Application Programming (CAP) Model. 
-The users can use the raw capabilities of the **Axios** node module while still utilizing the following capabilities of CAP framework and SAP Cloud Platform:
-- Fluent API concept
-- Configuration using SAP Cloud Platform Destination and Connectivity services
-- Support of SAP OnPremise & Cloud APIs, Microsoft Office 365 APIs, Google Cloud Platform APIs and other REST APIs 
-- Uses configuration based on Axios Config options 
+The node module CDS-SCP-API simplifies the consuming external API from SAP OnPremise & Cloud APIs, Microsoft Office 365 APIs, Google Cloud Platform APIs, and other REST APIs in a Cloud Application Programming (CAP) Model on the SAP Cloud Platform. The module provides:
+- Fluent API consumption concept
+- Endpoint and Configuration using SAP Cloud Platform Destination and Connectivity services
+- Support of all kind of APIs including SAP OnPremise & Cloud OData and Rest APIs, Microsoft Office 365 APIs, Google Cloud Platform APIs and other REST APIs 
+- Easy API http request configuration based on Axios config options 
 
 ## History
-Jhodel Cailan initially started the CDS Extension concept. SAP Mentor Robert Eijpe created a similar concept integrating Microsoft Azure and Google Cloud APIs into a CDS external services concept. The SAP Devtoberfest 2020 challenge brought concepts together. And this results in a CDS-SCP-API Node Module for the community, which will make SAP developers life better.
+Jhodel Cailan initially started the CDS Extension concept. SAP Mentor Robert Eijpe created a similar concept integrating Microsoft Azure and Google Cloud APIs into a CDS external services concept. The SAP Devtoberfest 2020 challenge brought concepts together. And this results in a CDS-SCP-API Node Module for the community, making SAP developers' lives better.
 
 ## Installation
 
