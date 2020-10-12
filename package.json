@@ -1,6 +1,6 @@
 {
   "name": "@sapmentors/cds-scp-api",
-  "version": "0.0.7-alpha",
+  "version": "1.0.0",
   "description": "CDS Extension for External Service Consumption",
   "main": "index.js",
   "scripts": {
