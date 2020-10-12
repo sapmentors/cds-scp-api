@@ -16,7 +16,7 @@ Jhodel Cailan initially started the CDS Extension concept. SAP Mentor Robert Eij
 Using npm:
 
 ```swift
-> npm install cds-scp-api
+> npm install @sapmentors/cds-scp-api
 ```
 ## Supported Destination Types
 
