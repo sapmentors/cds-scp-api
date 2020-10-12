@@ -1,31 +1,22 @@
 # CDS-SCP-API Node Module 
 
 ## CDS Extension for SAP Cloud Platform API Consumption
-This node module simplifies the consuming external API in a Cloud Application Programming (CAP) Model. 
-The users can use the raw capabilities of the **Axios** node module while still utilizing the following capabilities of CAP framework and SAP Cloud Platform:
-- Fluent API concept
-- Configure SAP Cloud Platform Destination and Connectivity services
-- CDS configuration found in **package.json**
-- Reuse Axios options for calling API
+The node module CDS-SCP-API simplifies the consuming external API from SAP OnPremise & Cloud APIs, Microsoft Office 365 APIs, Google Cloud Platform APIs, and other REST APIs in a Cloud Application Programming (CAP) Model on the SAP Cloud Platform. The module provides:
+- Fluent API consumption concept
+- Endpoint and Configuration using SAP Cloud Platform Destination and Connectivity services
+- Support of all kind of APIs including SAP OnPremise & Cloud OData and Rest APIs, Microsoft Office 365 APIs, Google Cloud Platform APIs and other REST APIs 
+- Easy API http request configuration based on Axios config options 
 
 ## History
-Jhodel Cailan initially started the CDS Extension concept. SAP Mentor Robert Eijpe created a similar concept integrating Microsoft Azure and Google Cloud APIs into a CDS external services concept. The SAP Devtoberfest 2020 challenge brought them together. And they contributes this CDS-SCP-API Node Module to the community, and hope it will make SAP developers life better.
+Jhodel Cailan initially started the CDS Extension concept. SAP Mentor Robert Eijpe created a similar concept integrating Microsoft Azure and Google Cloud APIs into a CDS external services concept. The SAP Devtoberfest 2020 challenge brought concepts together. And this results in a CDS-SCP-API Node Module for the community, making SAP developers' lives better.
 
 ## Installation
 
 Using npm:
 
 ```swift
-> npm install cds-scp-api
+> npm install @sapmentors/cds-scp-api
 ```
-## Supported Destination Types
-
-- Internet Destinations with No Authentication 
-- Internet Destinations with Basic Authentication
-- Internet Destinations with Client Credentials Authentication (including Microsoft Azure)
-- Internet Destinations with JWT token Authentication (currently only Google Cloud Platform)
-- OnPremise Destination and Connectivity via Cloud Connector with No Authentication 
-- OnPremise Destinations and Connectivity via Cloud Connector with Basic Authentication
 
 ## Javascript/Node.js Code
 ```javascript
@@ -41,6 +32,19 @@ let result = await service.run({
              })
 
 ```
+## Example Programs
+
+Click [here](./examples/readme.md) for examples and environment setup
+
+## Supported Destination Types
+
+- Internet Destinations with No Authentication 
+- Internet Destinations with Basic Authentication
+- Internet Destinations with Client Credentials Authentication (including Microsoft Azure)
+- Internet Destinations with JWT token Authentication (currently only Google Cloud Platform)
+- OnPremise Destination and Connectivity via Cloud Connector with No Authentication 
+- OnPremise Destinations and Connectivity via Cloud Connector with Basic Authentication
+
 ## SCP Destination Configuration Examples
 
 - [SAP Cloud Platform Internet Destinations with No Authentication](./docs/InternetAPIwithNoAuthentication.md)
@@ -136,5 +140,3 @@ async function SimultaneousRequests() {
 
 }
   ```
-## Example Program for Node Module
-Click [here](./examples/readme.md) for examples and environment setup
