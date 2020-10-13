@@ -1,5 +1,9 @@
 # CDS-SCP-API Node Module Examples
 
+## Standalone Examples
+
+These set up belongs to the [standalone node.js example](./readme.md). Please also follow the [SCP Destination Configuration](../README.md) as preparation to run the examples.
+
 ## Steps for setting up the standalone node.js example project
 
 - Create a new folder and enter the new folder
