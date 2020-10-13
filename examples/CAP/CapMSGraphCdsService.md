@@ -1,5 +1,9 @@
 # CDS-SCP-API CAP Examples
 
+## Prerequisites
+
+Before you can start this example, you need to setup your environment in Microsoft Azure and the SAP Cloud Platform Destination services as written on this [page](../../docs/InternetAPIforAzure.md).
+
 ## Userlist from Microsoft Azure Active Directory as CAP CDS External Service
 
 - Create a new folder and enter the new folder
@@ -17,7 +21,7 @@
   ```json
   "dependencies": {
     ...
-    "@sapmentors/cds-scp-api": "^0.0.2-alpha"
+    "@sapmentors/cds-scp-api": "latest"
    },
    ```
 

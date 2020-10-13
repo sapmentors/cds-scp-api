@@ -12,24 +12,24 @@ This example uses Google Cloud Platform API for reading all users' full profiles
 
 ## Destination Configuration in SAP Cloud Platform Destination Service 
 
-![Destination Configuration - Under Construction](./pictures/DestinationInternetForGoogleCloudPlatform.png)
+![Destination Configuration](./pictures/DestinationInternetForGoogleCloudPlatform.png)
 
 ```text
 URL                    : https://www.googleapis.com
-Client ID              : <...>
-Client Secret          : <...>
+Client ID              : <OAuth 2.0 Client ID of the Google Service API Credential page>
+Client Secret          : <content of google service account private key JSON file>
 Token Service URL      : https://oauth2.googleapis.com/token
 jwt.scope              : https://www.googleapis.com/auth/admin.directory.user
-jwt.sub                : <...>
+jwt.sub                : <A delegated email address of the Google Suite>
 jwts.expiration-time   : 3600
 jwts.signing-algorithm : RS256
 jwts.type              : gcp_service_account
 ```
 
 Remark:
-- **jwts** are the JSON Web Token Settings for the CDS-SCP-API implementation. At this moment only jwts.type **gcp_service_account** is supported.
+- **jwts** are the JSON Web Token Settings for the CDS-SCP-API implementation. At this moment, only jwts.type **gcp_service_account** is supported.
 - **jwt** are the JSON Web Token Claims, which can be found [here](https://www.iana.org/assignments/jwt/jwt.xhtml) and added as SAP Cloud Platform destination additional properties.
-- The CDS-SCP-API implementation for jwts.type **gcp_service_account** will set the JWT claim values for **iss** and **aud** from the Client Secret, will use the current time for the JWT claim **iat** and will add the jwts.expiration-time to the current time as value for the JWT claim **exp**.
+- The CDS-SCP-API implementation for jwts.type **gcp_service_account** will set the JWT claim values for **iss** and **aud** from the Client Secret, use the current time for the JWT claim **iat**, and add the jwts.expiration-time to the current time as value for the JWT claim **exp**.
 
 
 
