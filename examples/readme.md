@@ -2,7 +2,7 @@
 
 ## Standalone Examples
 
-These code examples only provides the executable code for the scenario. Please look at the [Steps for setting up the standalone example project]() and  [SCP Destination Configuration](../README.md) to run the examples.
+These code examples only provides the executable code for the scenario. Please look at the [Steps for setting up the standalone example project](./standalonesetup.md) and  [SCP Destination Configuration](../README.md) as preparation to run the examples.
 
 - [Retrieve a product list from public available OData Service called Northwind](./InternetProxy/ReadPublicApiNorthwindWithNoAuthentication.js) - No Authentification
 - [Retrieve a product list from public available SAP OData service](./InternetProxy/ReadProductsOfErpWithBasicAuthentication.js) - Basic Authentification
