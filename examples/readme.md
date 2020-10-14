@@ -8,7 +8,7 @@ These code examples only provides the executable code for the scenario. Please l
 - [Retrieve a product list from public available SAP OData service](./InternetProxy/ReadProductsOfErpWithBasicAuthentication.js) - Basic Authentification
 - [Create a product with public available SAP OData service](./InternetProxy/CreateProductInErpWithBasicAuthentication.js)  - Basic Authentification
 - [Read user list from Microsoft Azure Active Directory](./InternetProxy/ReadUserlistOfAzureActiveDirectoryWithClientCredentialsAuthentication.js) - Client Credentials  Authentification
-- Read user list from Google Cloud Platform - JWT Token Authentification (under construction)
+- [Read user list from Google Cloud Platform - JWT Token Authentification](./InternetProxy/ReadUserlistOfGoogleCloudPlatformWithOAuth2JWTBearer.js)
 
 ## Cloud Application Programming Model Examples
 To run these examples. you also need to setup the [SCP Destination Configuration](../README.md) as preparation.
