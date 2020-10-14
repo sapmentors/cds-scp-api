@@ -6,5 +6,6 @@ default-env.json
 *.DS_Store
 .DS_Store
 *.afphoto
+*.afdesign
 CDS_API.code-workspace
 package-lock.json

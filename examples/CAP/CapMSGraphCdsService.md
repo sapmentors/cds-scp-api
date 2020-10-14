@@ -1,5 +1,7 @@
 # CDS-SCP-API CAP Examples
 
+![Logo](../../docs/pictures/CAPandMicrosoftGraph.png)
+
 ## Prerequisites
 
 Before you can start this example, you need to setup your environment in Microsoft Azure and the SAP Cloud Platform Destination services as written on this [page](../../docs/InternetAPIforAzure.md).
