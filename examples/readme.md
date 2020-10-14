@@ -14,6 +14,6 @@ These code examples only provides the executable code for the scenario. Please l
 To run these examples. you also need to setup the [SCP Destination Configuration](../README.md) as preparation.
 
 - [User list from Microsoft Azure Active Directory as CAP CDS External Service](./CAP/CapMSGraphCdsService.md)
-- User list from Google Cloud Platform as CAP CDS External Service (under construction)
+- [User list from Google Cloud Platform as CAP CDS External Service](./CAP/CapGCPCdsService.md)
 - Create Excel in Office365 from CAP CDS action - (under construction)
 
