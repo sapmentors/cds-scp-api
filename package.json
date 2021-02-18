@@ -36,8 +36,5 @@
     "url": "https://github.com/sapmentors/cds-scp-api/issues"
   },
   "homepage": "https://github.com/sapmentors/cds-scp-api#readme",
-  "repository": "git://github.com/sapmentors/cds-scp-api.git",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  }
+  "repository": "git://github.com/sapmentors/cds-scp-api.git"
 }
