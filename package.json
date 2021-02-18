@@ -4,7 +4,8 @@
   "description": "CDS Extension for External Service Consumption",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "release": "standard-version"
   },
   "dependencies": {
     "@sap/xsenv": "^3.1.0",
@@ -20,7 +21,8 @@
     "axios-mock-adapter": "^1.19.0",
     "eslint": "^7.20.0",
     "lodash": "^4.17.20",
-    "mocha": "^8.3.0"
+    "mocha": "^8.3.0",
+    "standard-version": "^9.1.1"
   },
   "keywords": [
     "sap",
