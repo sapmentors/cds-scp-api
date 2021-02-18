@@ -1,0 +1,6 @@
+.github/
+docs/
+examples/
+.eslintrc.json
+.vscode/
+.travis.yml
