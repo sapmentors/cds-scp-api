@@ -194,6 +194,28 @@ function createJwtTokenForGCPServiceAccount(cfDestinationInfo) {
     });
 }
 
+function getConfigForTokenFetch(config) {
+    let tokenConfig = {
+        baseURL: config.baseURL,
+        url: "/$metadata",
+        method: "GET",
+        headers: Object.assign(config.headers || {}, {
+            "X-CSRF-Token": "Fetch",
+            "Connection": "keep-alive"
+        })
+    };
+    if (config.proxy) {
+        tokenConfig.proxy = Object.assign({}, config.proxy);
+    }
+
+    if (process.env.DEBUG === "true") {
+        console.log(tokenConfig);
+    }
+
+    return tokenConfig;
+}
+
+
 function getAxiosConfig(options, cfDestinationInfo, connectivity) {
     return new Promise((resolve, reject) => {
         var config = Object.assign({}, options);
