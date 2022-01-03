@@ -32,7 +32,7 @@ function getAuthorizationHeader(_config, cfDestinationInfo) {
     return new Promise((resolve, reject) => {
         var error;
         var config = Object.assign({}, _config);
-        config.headers = {}
+        config.headers = config.headers || {};
         switch (cfDestinationInfo.Authentication) {
             case "NoAuthentication":
                 resolve(config)
